@@ -1,12 +1,17 @@
 
 // import CartWidget from "./components/NavBar/CartWidget/CartWidget";
 
+import Flex from "../flex/Flex";
 import CartWidget from "./CartWidget/CartWidget";
 
 
 
+  
+
 function NavBar() {
+ 
     return (
+      <Flex>
       <ul>
         <h2>Los Libros de Gaston</h2>
         <li>
@@ -20,7 +25,9 @@ function NavBar() {
         </li>
          <CartWidget/>
       </ul>
+      </Flex>
     );
+    
   }
-  
+
   export default NavBar;
