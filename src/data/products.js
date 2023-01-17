@@ -2,7 +2,7 @@ const products = [
     {
         id: 1,
         title: "1984",
-        category: "Suspenso",
+        category: "cienciaFiccion",
         stock: 4,
         imgurl:
           "/assets/img/1984.svg",
@@ -13,7 +13,7 @@ const products = [
       {
         id: 3,
         title: "Arsene Lupin",
-        category: "Suspenso",
+        category: "detectives",
         stock: 3,
         imgurl:
           "/assets/img/lupin.svg",
@@ -23,7 +23,7 @@ const products = [
       {
         id: 4,
         title: "La Vuelta al Mundo en 80 Dias",
-        category: "Suspenso",
+        category: "aventura",
         stock: 3,
         imgurl:
           "/assets/img/vuelta.svg",
@@ -33,7 +33,7 @@ const products = [
       {
         id: 4,
         title: "El Libro de la Selva",
-        category: "Suspenso",
+        category: "aventura",
         stock: 3,
         imgurl:
           "/assets/img/libro selva.svg",

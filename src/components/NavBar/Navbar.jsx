@@ -1,5 +1,5 @@
 
-// import CartWidget from "./components/NavBar/CartWidget/CartWidget";
+import { Link } from "react-router-dom";
 
 import Flex from "../flex/Flex";
 import CartWidget from "./CartWidget/CartWidget";
@@ -15,16 +15,19 @@ function NavBar() {
       <ul>
         <h2>Los Libros de Gaston</h2>
         <li>
-          <a href="/">Terror</a>
+        <Link className="nav-link" to="/category/detectives">Detectives</Link>
         </li>
         <li>
-          <a href="/">Ciencia Ficcion</a>
+        <Link className="nav-link" to="/category/cienciaFiccion">Ciencia Ficcion</Link>
         </li>
         <li>
-          <a href="/">Drama</a>
+          <Link className="nav-link" to="/category/aventura">Aventura</Link>
         </li>
          <CartWidget/>
       </ul>
+      <li>
+          <Link className="nav-link" to="/contacto">Contacto</Link>
+        </li>
       </Flex>
     );
     

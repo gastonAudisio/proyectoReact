@@ -1,14 +1,16 @@
-
+import { Link } from "react-router-dom";
 import React from "react";
 import "./item.css";
 
 
 
-function Item({ title, price, detail, imgurl }) {
+function Item({id, title, price, detail, imgurl }) {
+  const urlDetail = `/item/${id}`;
   return (
     <div className="item-card">
       <div className="item-card_header">
         <h2>{title}</h2>
+        <Link to={urlDetail}></Link>
       </div>
       <div className="item-card_img">
         <img src={imgurl} alt="imagen"></img>
