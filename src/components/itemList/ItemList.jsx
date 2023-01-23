@@ -1,7 +1,6 @@
 import React from "react";
 import Flex from "../flex/Flex";
 import Item from "../Item/Item";
-
 function ItemList(props) {
   return (
     <Flex>
@@ -13,7 +12,9 @@ function ItemList(props) {
           detail={item.detail}
           imgurl={item.imgurl}
           />
+          
       ))}
+      
     </Flex>
   );
 }

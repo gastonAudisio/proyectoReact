@@ -1,17 +1,15 @@
 
 
 import React, { useState, useEffect } from "react";
-
-import "../Item/item.css"
 import getItems,{ getItemsByCategory } from "../../services/services";
 import ItemList from "../itemList/ItemList";
-
+import { useParams } from "react-router-dom" 
 
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
 
+  let { idcategory } = useParams();
   
-  let idcategory = "undefined";
   
   useEffect(() => {
     if (idcategory) {
@@ -25,7 +23,7 @@ function ItemListContainer() {
         setProducts(respuesta);
       });
     }
-  }, []);
+  }, );
 
 
   return (

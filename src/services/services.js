@@ -14,7 +14,7 @@ const databaseItems = [
       {
         id: 3,
         title: "Arsene Lupin",
-        category: "suspenso",
+        category: "detectives",
         stock: 3,
         imgurl:
           "/assets/img/lupin.svg",
@@ -41,7 +41,7 @@ const databaseItems = [
         imgurl:
           "/assets/img/libro selva.svg",
         price: 4000,
-        detail: 2001,
+        detail: 2000,
         
       },
    
@@ -57,9 +57,9 @@ export default function getItems() {
 }
 
 export function getSingleItem(itemid) {
-  // 3. Usamos find para encontrar el producto deseado
+  
   let itemReq = databaseItems.find((item) => {
-    //console.log(item, itemid);
+    
     return item.id === parseInt(itemid);
   });
 
