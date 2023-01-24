@@ -8,12 +8,12 @@ import { useParams } from "react-router-dom"
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
 
-  let { idcategory } = useParams();
-  
+  let { categoryid } = useParams();
+  console.log(categoryid);
   
   useEffect(() => {
-    if (idcategory) {
-      getItemsByCategory(idcategory).then((respuesta) => {
+    if (categoryid) {
+      getItemsByCategory(categoryid).then((respuesta) => {
         console.log(respuesta);
         setProducts(respuesta);
       });
@@ -23,7 +23,7 @@ function ItemListContainer() {
         setProducts(respuesta);
       });
     }
-  }, );
+  },[categoryid]);
 
 
   return (

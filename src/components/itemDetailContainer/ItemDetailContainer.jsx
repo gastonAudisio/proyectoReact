@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { getSingleItem } from "../../services/services";
 import { useParams } from "react-router-dom" 
 import "./itemDetail.css";
+import ItemCount from "../itemCount/ItemCount";
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState([]);
 
   let { itemid } = useParams();
   console.log(itemid);
-
+  
   useEffect(() => {
    
     getSingleItem(itemid)
@@ -16,9 +17,10 @@ function ItemDetailContainer() {
         setProduct(respuesta);
       })
       .catch((error) => alert(`Error: ${error}`));
-  }, []);
+  }, [itemid]);
 
   return (
+
     <div className="card-detail_main">
       <div className="card-detail_img">
         <img src={product.imgurl} alt={product.title} />
@@ -27,6 +29,9 @@ function ItemDetailContainer() {
         <h1>{product.title}</h1>
         <h2 className="priceTag">$ {product.price}</h2>
         <small>{product.detail}</small>
+
+        <ItemCount  />
+      
       </div>
     </div>
   );

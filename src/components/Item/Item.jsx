@@ -4,7 +4,7 @@ import "./item.css";
 
 
 
-function Item({id, title, price, detail, imgurl }) {
+function Item({id, title, price, detail, imgurl, stock }) {
   const urlDetail = `/item/${id}`;
   return (
     <div className="item-card">
@@ -14,8 +14,14 @@ function Item({id, title, price, detail, imgurl }) {
         </div>
       </Link>
       <div className="item-card_detail">
-        <h4>$ {price}</h4>
+        <h3>{title}</h3>
+        <h5>$ {price}</h5>
+        <h5> {stock} unidades</h5>
         <small>{detail}</small>
+        <br />
+        <Link to={urlDetail}>
+       <button className="btn">detalles</button>
+       </Link>
       </div>
       
     </div>
