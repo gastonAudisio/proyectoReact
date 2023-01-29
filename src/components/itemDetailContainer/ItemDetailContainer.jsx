@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext  } from "react";
 import { getSingleItem } from "../../services/services";
 import { useParams } from "react-router-dom" 
 import "./itemDetail.css";
 import ItemCount from "../itemCount/ItemCount";
 import ItemDetail from "../itemDetail/ItemDetail";
+import { cartContext } from "../../storage/cartContext";
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState([]);
@@ -11,8 +12,15 @@ function ItemDetailContainer() {
   let { itemid } = useParams();
   console.log(itemid);
   
+  const { addItem, removeItem } = useContext(cartContext);
+
+  // onAddtoCart
+  function handleAddToCart(count) {
+    alert(`Agregaste ${count} de ${product.title} al carrito`);
+    product.count = count;
+    addItem(product);
+  }
   useEffect(() => {
-   
     getSingleItem(itemid)
       .then((respuesta) => {
         setProduct(respuesta);
@@ -31,8 +39,11 @@ function ItemDetailContainer() {
         <h2 className="priceTag">$ {product.price}</h2>
         <small>{product.detail}</small>
       
-       
-        <ItemCount  stock={product.stock}/>
+    
+        <ItemCount stock={product.stock} onAddToCart={handleAddToCart} />
+      <button> Ir al carrito</button>
+      <button onClick={() => removeItem(product.id)}>Eliminar Item</button>
+      <button>Vaciar Carrito</button>
       </div>
     </div>
   

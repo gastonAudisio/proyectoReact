@@ -1,15 +1,22 @@
-
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-
 import Flex from "../flex/Flex";
 import CartWidget from "./CartWidget/CartWidget";
-
-
+import UserMenu from "./UserMenu";
+import { cartContext } from "../../storage/cartContext";
 
   
 
-function NavBar() {
- 
+function NavBar({ onLogin }) {
+
+ function handleSubmit(evt) {
+    evt.preventDefault();
+    let username = evt.target.elements[0].value;
+    onLogin(username);
+  }
+
+  const { getTotalItems } = useContext(cartContext);
+
     return (
       <Flex>
       <ul>
@@ -30,6 +37,19 @@ function NavBar() {
       <li>
           <Link className="nav-link" to="/contacto">Contacto</Link>
         </li>
+
+        <form onSubmit={handleSubmit}>
+          <label>
+            Ingresa tu nombre:
+            <input name="username" placeholder="username" />
+          </label>
+          <button type="submit">Login</button>
+        </form>
+
+        <span>
+          🛒
+          {getTotalItems()}
+        </span>
       </Flex>
     );
     
