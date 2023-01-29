@@ -3,16 +3,18 @@ import { useState } from "react";
 import "./itemCount.css";
 
 
-function ItemCount(stock) {
+function ItemCount( { stock } ) {
   const [count, setCount] = useState(1);
  
   function handleAdd() {
-    
+   
     setCount(count + 1);
+  
+  
   }
 
   function handleSubstract() {
-   
+    
     setCount(count - 1);
   }
 

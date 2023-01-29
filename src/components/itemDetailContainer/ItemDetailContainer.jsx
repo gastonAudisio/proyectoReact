@@ -3,6 +3,7 @@ import { getSingleItem } from "../../services/services";
 import { useParams } from "react-router-dom" 
 import "./itemDetail.css";
 import ItemCount from "../itemCount/ItemCount";
+import ItemDetail from "../itemDetail/ItemDetail";
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState([]);
@@ -29,11 +30,12 @@ function ItemDetailContainer() {
         <h1>{product.title}</h1>
         <h2 className="priceTag">$ {product.price}</h2>
         <small>{product.detail}</small>
-
-        <ItemCount  />
       
+       
+        <ItemCount  stock={product.stock}/>
       </div>
     </div>
+  
   );
 }
 
