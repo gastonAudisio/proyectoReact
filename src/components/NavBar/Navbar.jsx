@@ -32,7 +32,7 @@ function NavBar({ onLogin }) {
         <li>
           <Link className="nav-link" to="/category/aventura">Aventura</Link>
         </li>
-         <CartWidget/>
+         
       </ul>
       <li>
           <Link className="nav-link" to="/contacto">Contacto</Link>
@@ -47,7 +47,8 @@ function NavBar({ onLogin }) {
         </form>
 
         <span>
-          🛒
+          
+          <CartWidget/>
           {getTotalItems()}
         </span>
       </Flex>

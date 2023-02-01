@@ -1,21 +1,19 @@
-import React, { useState, useEffect,useContext  } from "react";
+import React, { useState, useEffect , useContext } from "react";
 import { getSingleItem } from "../../services/services";
 import { useParams } from "react-router-dom" 
 import "./itemDetail.css";
 import ItemCount from "../itemCount/ItemCount";
-import ItemDetail from "../itemDetail/ItemDetail";
 import { cartContext } from "../../storage/cartContext";
+
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState([]);
 
   let { itemid } = useParams();
-  console.log(itemid);
-  
-  const { addItem, removeItem } = useContext(cartContext);
-
+ 
+   const { addItem , removeItem , clearCart} = useContext(cartContext);
   // onAddtoCart
-  function handleAddToCart(count) {
+   function handleAddToCart(count) {
     alert(`Agregaste ${count} de ${product.title} al carrito`);
     product.count = count;
     addItem(product);
@@ -29,7 +27,6 @@ function ItemDetailContainer() {
   }, [itemid]);
 
   return (
-
     <div className="card-detail_main">
       <div className="card-detail_img">
         <img src={product.imgurl} alt={product.title} />
@@ -38,16 +35,19 @@ function ItemDetailContainer() {
         <h1>{product.title}</h1>
         <h2 className="priceTag">$ {product.price}</h2>
         <small>{product.detail}</small>
+   
+        <ItemCount stock={product.stock} onAddToCart={handleAddToCart} />
+      <button className="btn"> Ir al carrito</button>
+      <button className="btn" onClick={() => removeItem(product.id)}>Eliminar Libro</button>
+      <button className="btn"onClick={() => clearCart(product.id)}>Vaciar Carrito</button>
+      </div>
       
     
-        <ItemCount stock={product.stock} onAddToCart={handleAddToCart} />
-      <button> Ir al carrito</button>
-      <button onClick={() => removeItem(product.id)}>Eliminar Item</button>
-      <button>Vaciar Carrito</button>
-      </div>
     </div>
-  
-  );
-}
 
+    
+       
+  
+  )
+}
 export default ItemDetailContainer;

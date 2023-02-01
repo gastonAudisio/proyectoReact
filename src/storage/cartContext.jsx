@@ -6,11 +6,7 @@ export function CartContextProvider(props) {
   let [cart, setCart] = useState([]);
 
   function addItem(item) {
-    // shallow copy - deep copy (JSON)
-    //let newCart = cart.map( item => item )
-    /* let newCart = [...cart]
-    newCart.push(item);
-    setCart(newCart) */
+
     const isInCart = cart.some((itemInCart) => itemInCart.id === item.id);
 
     if (isInCart) {
@@ -23,11 +19,11 @@ export function CartContextProvider(props) {
   }
 
   function removeItem(idToDel) {
-    setCart(cart.pop());
+    setCart(cart.filter(item=> item.id === idToDel))
   }
 
-  function clearCart() {
-    /* Vaciar el carrito */
+   function clearCart() {
+    setCart([])
   }
 
   function getTotalItems() {
@@ -46,6 +42,7 @@ export function CartContextProvider(props) {
     getTotalItems,
     getTotalPriceInCart,
     removeItem,
+    clearCart,
   };
 
   return (
