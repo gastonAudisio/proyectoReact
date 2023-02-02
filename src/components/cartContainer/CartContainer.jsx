@@ -3,6 +3,7 @@ import { cartContext } from "../../storage/cartContext";
 import { Link } from "react-router-dom";
 import "./cartContainer.css";
 
+
 function CartContainer() {
   const { cart , removeItem , product } = useContext(cartContext);
 
@@ -17,7 +18,7 @@ function CartContainer() {
             <img width="100" src={item.imgurl} alt="img" />
             <p>${item.price}</p>
             <p>{item.count}</p>
-            <button className="btn" onClick={() => removeItem(product.id)}>Eliminar del Carrito</button>
+            <button className="btn" onClick={() => removeItem(item.id)}>Eliminar del Carrito</button>
           </div>
         ))}
       </div>
