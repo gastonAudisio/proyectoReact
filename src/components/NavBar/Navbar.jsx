@@ -49,7 +49,8 @@ function NavBar({ onLogin }) {
         <span>
           
           <CartWidget/>
-          {getTotalItems()}
+          
+          {getTotalItems()>0&&getTotalItems()}
         </span>
       </Flex>
     );
