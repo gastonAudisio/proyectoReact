@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import "./itemDetail.css";
 import ItemCount from "../itemCount/ItemCount";
 import { cartContext } from "../../storage/cartContext";
+import { Link } from "react-router-dom";
 
 
 function ItemDetailContainer() {
@@ -12,7 +13,7 @@ function ItemDetailContainer() {
   let { itemid } = useParams();
  
    const { addItem , removeItem , clearCart} = useContext(cartContext);
-  // onAddtoCart
+
    function handleAddToCart(count) {
     alert(`Agregaste ${count} de ${product.title} al carrito`);
     product.count = count;
@@ -37,7 +38,11 @@ function ItemDetailContainer() {
         <small>{product.detail}</small>
    
         <ItemCount stock={product.stock} onAddToCart={handleAddToCart} />
-      <button className="btn"> Ir al carrito</button>
+
+        <Link to="/cart">
+          <button className="btn">Ver Carrito</button> 
+          </Link>
+      
       <button className="btn" onClick={() => removeItem(product.id)}>Eliminar Libro</button>
       <button className="btn"onClick={() => clearCart(product.id)}>Vaciar Carrito</button>
       </div>

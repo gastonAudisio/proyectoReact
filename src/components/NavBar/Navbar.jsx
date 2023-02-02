@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import "./navbar.css";
 import Flex from "../flex/Flex";
 import CartWidget from "./CartWidget/CartWidget";
 import UserMenu from "./UserMenu";
 import { cartContext } from "../../storage/cartContext";
+
 
   
 
@@ -18,6 +20,8 @@ function NavBar({ onLogin }) {
   const { getTotalItems } = useContext(cartContext);
 
     return (
+      
+      <nav>
       <Flex>
       <ul>
       <Link className="nav-link" to="/"><h2>Los Libros de Gaston</h2></Link>
@@ -32,11 +36,11 @@ function NavBar({ onLogin }) {
         <li>
           <Link className="nav-link" to="/category/aventura">Aventura</Link>
         </li>
-         
-      </ul>
-      <li>
+        <li>
           <Link className="nav-link" to="/contacto">Contacto</Link>
         </li>
+      </ul>
+     
 
         <form onSubmit={handleSubmit}>
           <label>
@@ -45,14 +49,12 @@ function NavBar({ onLogin }) {
           </label>
           <button type="submit">Login</button>
         </form>
-
-        <span>
-          
-          <CartWidget/>
-          
-          {getTotalItems()>0&&getTotalItems()}
-        </span>
-      </Flex>
+       
+        <CartWidget/>
+        
+        </Flex>
+      </nav>
+      
     );
     
   }

@@ -1,0 +1,10 @@
+.flexRow{
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
+
+.card{
+    margin: 20px;
+    background-color: antiquewhite;
+}
