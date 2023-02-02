@@ -12,7 +12,8 @@ export function CartContextProvider(props) {
     if (isInCart) {
       let newCart = [...cart];
       let index = cart.findIndex((itemInCart) => itemInCart.id === item.id);
-      alert("el item ya está en el carrito");
+
+     console.log(newCart[index]) ;
     } else {
       setCart([...cart, item]);
     }

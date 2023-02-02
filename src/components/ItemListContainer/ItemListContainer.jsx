@@ -9,7 +9,7 @@ function ItemListContainer() {
   const [products, setProducts] = useState([]);
 
   let { categoryid } = useParams();
-  console.log(categoryid);
+  
   
   useEffect(() => {
     if (categoryid) {
@@ -19,7 +19,7 @@ function ItemListContainer() {
       });
     } else {
       getItems().then((respuesta) => {
-        console.log(respuesta);
+       
         setProducts(respuesta);
       });
     }
