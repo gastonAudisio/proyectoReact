@@ -19,8 +19,9 @@ export function CartContextProvider(props) {
     }
   }
 
-  function removeItem(idToDel) {
-    setCart(cart.filter(item=> item.id === idToDel))
+  const removeItem = (id) => {
+    const deleteItem = cart.filter(el => el.id !== id)
+    setCart([...deleteItem]);
   }
 
    function clearCart() {
