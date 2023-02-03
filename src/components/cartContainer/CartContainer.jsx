@@ -5,10 +5,10 @@ import "./cartContainer.css";
 
 
 function CartContainer() {
-  const { cart , removeItem , product } = useContext(cartContext);
+  const { cart , removeItem  } = useContext(cartContext);
 
   return (
-    
+  
     <div>
       <h1>Tu carrito</h1>
       <div classname="flexRow card">
@@ -27,7 +27,7 @@ function CartContainer() {
       </Link>
       
     </div>
-    
+  
   );
 }
 

@@ -3,6 +3,7 @@ import { getSingleItem } from "../../services/services";
 import { useParams } from "react-router-dom" 
 import "./itemDetail.css";
 import ItemCount from "../itemCount/ItemCount";
+import ItemDetail from "../itemDetail/ItemDetail";
 import { cartContext } from "../../storage/cartContext";
 import { Link } from "react-router-dom";
 
@@ -28,8 +29,9 @@ function ItemDetailContainer() {
   }, [itemid]);
 
   return (
-    <div className="card-detail_main">
-      <div className="card-detail_img">
+    <div>
+   {/* <div className="card-detail_main">
+       <div className="card-detail_img">
         <img src={product.imgurl} alt={product.title} />
       </div>
       <div className="card-detail_detail">
@@ -45,14 +47,17 @@ function ItemDetailContainer() {
       
       <button className="btn" onClick={() => removeItem(product.id)}>Eliminar Libro</button>
       <button className="btn"onClick={() => clearCart(product.id)}>Vaciar Carrito</button>
-      </div>
+      </div> *
       
     
-    </div>
+    </div> */}
+    <ItemDetail />
 
+    <ItemCount stock={product.stock} onAddToCart={handleAddToCart} />
     
+  </div>
        
-  
   )
+  
 }
 export default ItemDetailContainer;

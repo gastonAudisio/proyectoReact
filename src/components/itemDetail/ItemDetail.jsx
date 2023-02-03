@@ -1,23 +1,35 @@
 import ItemCount from "../itemCount/ItemCount";
+import { Link } from "react-router-dom";
 
-function ItemDetail(product,removeItem,handleAddToCart){
+
+
+function ItemDetail({product,removeItem,clearCart,handleAddToCart}){
+
+  
+return(
+
+
 <div className="card-detail_main">
       <div className="card-detail_img">
         <img src={product.imgurl} alt={product.title} />
       </div>
       <div className="card-detail_detail">
-        <h1>{product.title}</h1>
-        <h2 className="priceTag">$ {product.price}</h2>
-        <small>{product.detail}</small>
-   
-        <ItemCount stock={product.stock} onAddToCart={handleAddToCart} />
-      <button className="btn"> Ir al carrito</button>
-      <button className="btn" onClick={() => removeItem(product.id)}>Eliminar Item</button>
-      <button className="btn">Vaciar Carrito</button>
-      </div>
+          <h1>{product.title}</h1>
+          <h2 className="priceTag">$ {product.price}</h2>
+          <small>{product.detail}</small>
+    
+          <ItemCount stock={product.stock} onAddToCart={handleAddToCart} />
 
-  </div>
-
+          <Link to="/cart">
+            <button className="btn">Ver Carrito</button> 
+            </Link>
+        
+        <button className="btn" onClick={() => removeItem(product.id)}>Eliminar Libro</button>
+        <button className="btn"onClick={() => clearCart(product.id)}>Vaciar Carrito</button>
+      </div> 
+      
+    
+</div>
+);
 }
-
 export default ItemDetail;
