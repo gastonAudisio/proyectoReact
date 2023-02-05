@@ -8,7 +8,7 @@ function ItemCount( { stock, onAddToCart } ) {
  
   function handleAdd() {
    
-    setCount(count + 1);
+   setCount(count + 1);
   
   
   }

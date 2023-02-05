@@ -13,7 +13,8 @@ export function CartContextProvider(props) {
       let newCart = [...cart];
       let index = cart.findIndex((itemInCart) => itemInCart.id === item.id);
 
-     console.log(newCart[index]) ;
+      setCart([newCart[index]])
+      console.log(newCart[index]) ;
     } else {
       setCart([...cart, item]);
     }
@@ -24,7 +25,7 @@ export function CartContextProvider(props) {
     setCart([...deleteItem]);
   }
 
-   function clearCart() {
+  function clearCart() {
     setCart([])
   }
 

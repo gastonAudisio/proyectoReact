@@ -1,35 +1,70 @@
 import ItemCount from "../itemCount/ItemCount";
 import { Link } from "react-router-dom";
+import { cartContext } from "../../storage/cartContext";
+import React, {  useContext } from "react";
 
-
-
-function ItemDetail({product,removeItem,clearCart,handleAddToCart}){
-
+function ItemDetail({product}){
+  const { addItem , removeItem , clearCart } = useContext(cartContext);
+  function handleAddToCart(count) {
+    alert(`Agregaste ${count} de ${product.title} al carrito`);
+    product.count = count;
+    addItem(product);
+   
+  }
+ 
   
 return(
+<div>
+{ product.id ? (
+  <div className="card-detail_main">
+  <div className="card-detail_img">
+    <img src={product.imgurl} alt={product.title} />
+  </div>
+  <div className="card-detail_detail">
+      <h1>{product.title}</h1>
+      <h2 className="priceTag">$ {product.price}</h2>
+      <small>{product.detail}</small>
 
+      <ItemCount stock={product.stock} onAddToCart={handleAddToCart} />
 
-<div className="card-detail_main">
-      <div className="card-detail_img">
-        <img src={product.imgurl} alt={product.title} />
-      </div>
-      <div className="card-detail_detail">
-          <h1>{product.title}</h1>
-          <h2 className="priceTag">$ {product.price}</h2>
-          <small>{product.detail}</small>
+      <Link to="/cart">
+        <button className="btn">Ver Carrito</button> 
+        </Link>
     
-          <ItemCount stock={product.stock} onAddToCart={handleAddToCart} />
-
-          <Link to="/cart">
-            <button className="btn">Ver Carrito</button> 
-            </Link>
-        
-        <button className="btn" onClick={() => removeItem(product.id)}>Eliminar Libro</button>
-        <button className="btn"onClick={() => clearCart(product.id)}>Vaciar Carrito</button>
-      </div> 
+    <button className="btn" onClick={() => removeItem(product.id)}>Eliminar Libro</button>
+    <button className="btn"onClick={() => clearCart(product.id)}>Vaciar Carrito</button>
+  </div>    
+</div>
+) : (
+  <div className="card-detail_main">
+        <div className="card-detail_img">
+          <img src={product.imgurl} alt={product.title} />
+        </div>
+        <div className="card-detail_detail">
+            <h1>{product.title}</h1>
+            <h2 className="priceTag">$ {product.price}</h2>
+            <small>{product.detail}</small>
       
-    
+           
+            <Link to="/cart">
+              <button className="btn">Ver Carrito</button> 
+              </Link>
+          
+        
+        </div>    
+  </div>
+)
+  
+
+
+}
+
+
+
 </div>
 );
+
+
+
 }
 export default ItemDetail;
