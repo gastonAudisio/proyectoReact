@@ -4,19 +4,17 @@ import { cartContext } from "../../storage/cartContext";
 import React, { useContext , useState } from "react";
 
 function ItemDetail({product}){
+  const [cantidad,setCantidad] = useState();
+ 
   const { addItem  } = useContext(cartContext);
   function handleAddToCart(count) {
     alert(`Agregaste ${count} de ${product.title} al carrito`);
     product.count = count;
     addItem(product);
+    setCantidad(1);
   }
 
-  const [btn,setBtn] = useState(true);
-  const sBtn = () => {
-
-    setBtn(false);
-  }
-
+ 
 return(
 
   <div className="card-detail_main">
@@ -28,14 +26,13 @@ return(
       <h2 className="priceTag">$ {product.price}</h2>
       <small>{product.detail}</small>
 
-{btn ?
-      <ItemCount stock={product.stock} onClick={sBtn} onAddToCart={handleAddToCart} />
-      :   
+{cantidad>0 ?
       <Link to="/cart">
-        <button className="btn" onClick={addItem}>Ver Carrito</button> 
+        <button className="btn">Ver Carrito</button> 
       </Link> 
-      }
-    
+      :   
+      <ItemCount stock={product.stock}  onAddToCart={handleAddToCart} />
+}    
   </div>    
 </div>
 )
