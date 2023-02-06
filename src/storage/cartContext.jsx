@@ -46,6 +46,7 @@ export function CartContextProvider(props) {
     getTotalPriceInCart,
     removeItem,
     clearCart,
+    
   };
 
   return (

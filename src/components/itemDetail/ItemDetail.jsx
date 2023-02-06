@@ -1,16 +1,20 @@
 import ItemCount from "../itemCount/ItemCount";
 import { Link } from "react-router-dom";
 import { cartContext } from "../../storage/cartContext";
-import React, { useContext } from "react";
+import React, { useContext , useState } from "react";
 
-
-function ItemDetail({product,isInCart}){
+function ItemDetail({product}){
   const { addItem  } = useContext(cartContext);
   function handleAddToCart(count) {
     alert(`Agregaste ${count} de ${product.title} al carrito`);
     product.count = count;
     addItem(product);
-  
+  }
+
+  const [btn,setBtn] = useState(false);
+  const sBtn = () => {
+
+    setBtn(true);
   }
 
 return(
@@ -24,25 +28,16 @@ return(
       <h2 className="priceTag">$ {product.price}</h2>
       <small>{product.detail}</small>
 
-      {/* <ItemCount stock={product.stock} onAddToCart={handleAddToCart} />
-
+{btn ?
+      <ItemCount stock={product.stock} onClick={sBtn} onAddToCart={handleAddToCart} />
+      :   
       <Link to="/cart">
-        <button className="btn">Ver Carrito</button> 
-      </Link> */}
-
-{isInCart ? (
-        <a href="/cart">
-          <button className="btn">Ver Carrito</button> 
-        </a>
-      ) : (
-        <ItemCount stock={product.stock} onAddToCart={handleAddToCart} />
-      )}
+        <button className="btn" onClick={addItem}>Ver Carrito</button> 
+      </Link> 
+      }
     
   </div>    
 </div>
-
 )
-
 }
-
 export default ItemDetail;
