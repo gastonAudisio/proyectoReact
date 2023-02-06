@@ -4,7 +4,7 @@ import { cartContext } from "../../storage/cartContext";
 import React, { useContext } from "react";
 
 
-function ItemDetail({product}){
+function ItemDetail({product,isInCart}){
   const { addItem  } = useContext(cartContext);
   function handleAddToCart(count) {
     alert(`Agregaste ${count} de ${product.title} al carrito`);
