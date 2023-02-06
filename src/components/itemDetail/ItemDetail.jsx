@@ -24,11 +24,19 @@ return(
       <h2 className="priceTag">$ {product.price}</h2>
       <small>{product.detail}</small>
 
-      <ItemCount stock={product.stock} onAddToCart={handleAddToCart} />
+      {/* <ItemCount stock={product.stock} onAddToCart={handleAddToCart} />
 
       <Link to="/cart">
         <button className="btn">Ver Carrito</button> 
-      </Link>
+      </Link> */}
+
+{isInCart ? (
+        <a href="/cart">
+          <button className="btn">Ver Carrito</button> 
+        </a>
+      ) : (
+        <ItemCount stock={product.stock} onAddToCart={handleAddToCart} />
+      )}
     
   </div>    
 </div>
