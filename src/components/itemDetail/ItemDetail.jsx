@@ -11,10 +11,10 @@ function ItemDetail({product}){
     addItem(product);
   }
 
-  const [btn,setBtn] = useState(false);
+  const [btn,setBtn] = useState(true);
   const sBtn = () => {
 
-    setBtn(true);
+    setBtn(false);
   }
 
 return(
