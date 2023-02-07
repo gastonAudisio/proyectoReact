@@ -5,12 +5,12 @@ import "./cartContainer.css";
 
 
 function CartContainer() {
-  const { cart , removeItem  } = useContext(cartContext);
+  const { cart , removeItem ,clearCart , totalPrice } = useContext(cartContext);
 
   return (
   
     <div>
-      <h1>Tu carrito</h1>
+      <h1>Tus Compras</h1>
       <div classname="flexRow card">
         {cart.map((item) => (
           <div className="cart-item">
@@ -26,6 +26,11 @@ function CartContainer() {
           <button className="btn">Seguir Comprando</button> 
       </Link>
       
+          <button className="btn" onClick={() => clearCart()}>Vaciar Carrito</button> 
+          <h1>el total de tu compra es ${totalPrice()}</h1>
+
+      
+
     </div>
   
   );
