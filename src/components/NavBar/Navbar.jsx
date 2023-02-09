@@ -1,12 +1,7 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import Flex from "../flex/Flex";
 import CartWidget from "./CartWidget/CartWidget";
-import UserMenu from "./UserMenu";
-import { cartContext } from "../../storage/cartContext";
-
-
   
 
 function NavBar({ onLogin }) {
@@ -16,8 +11,6 @@ function NavBar({ onLogin }) {
     let username = evt.target.elements[0].value;
     onLogin(username);
   }
-
-  const { getTotalItems } = useContext(cartContext);
 
     return (
       

@@ -8,6 +8,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import { CartContextProvider } from "./storage/cartContext";
 import CartContainer from "./components/cartContainer/CartContainer";
 
+
 function App() {
   function handleLogin(username) {
     alert(`${username} Iniciaste sesión`);
