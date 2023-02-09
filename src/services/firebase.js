@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 import {
   getFirestore,
   doc,
@@ -10,16 +11,19 @@ import {
 } from "firebase/firestore";
 //1. Iniciar la conexión a Firestore
 
+
 const firebaseConfig = {
-  apiKey: "AIzaSyC-QmGmyJonplsGjtZyy2oucyvHTvMlVGY",
-  authDomain: "react43580.firebaseapp.com",
-  projectId: "react43580",
-  storageBucket: "react43580.appspot.com",
-  messagingSenderId: "314259173416",
-  appId: "1:314259173416:web:3006aa00cdac013273451d",
+  apiKey: "AIzaSyD7RXW7fbiMn4JKTcCxOCBZ61JVsX0djNA",
+  authDomain: "proyecto-react-3bfa8.firebaseapp.com",
+  projectId: "proyecto-react-3bfa8",
+  storageBucket: "proyecto-react-3bfa8.appspot.com",
+  messagingSenderId: "1073642690908",
+  appId: "1:1073642690908:web:c1dfcef28d1fba2674c999",
+  measurementId: "G-WJW5E8H6KE"
 };
 
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
 export function testApp() {

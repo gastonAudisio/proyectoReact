@@ -52,7 +52,7 @@ export default function getItems() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(databaseItems);
-    }, 1);
+    }, 200);
   });
 }
 
@@ -67,7 +67,7 @@ export function getSingleItem(itemid) {
     setTimeout(() => {
       if (itemReq !== undefined) resolve(itemReq);
       else reject("Item no encontrado en la base de datos.");
-    }, 1);
+    }, 200);
   });
 }
 
@@ -77,6 +77,6 @@ export function getItemsByCategory(categoryid) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(itemsCat);
-    }, 1);
+    }, 200);
   });
 }

@@ -1,8 +1,8 @@
 
 
 import React, { useState, useEffect } from "react";
-import getItems, { getItemsByCategory } from "../../services/services";
-//import  { getItems, getItemsByCategory } from "../../services/firebase";
+//import getItems, { getItemsByCategory } from "../../services/services";
+import  { getItems, getItemsPromise , getItemsByCategory } from "../../services/firebase";
 import ItemList from "../itemList/ItemList";
 import { useParams } from "react-router-dom" 
 import Notification from "../notification/Notification";
@@ -35,7 +35,7 @@ function ItemListContainer() {
 async function getProducts() {
   if (!categoryid) {
     try {
-      let response = await getItems();
+      let response = await getItemsPromise();
       setProducts(response);
       setNotification({
         type: "default",
