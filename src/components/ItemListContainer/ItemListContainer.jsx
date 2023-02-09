@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import getItems, { getItemsByCategory } from "../../services/services";
+//import  { getItems, getItemsByCategory } from "../../services/firebase";
 import ItemList from "../itemList/ItemList";
 import { useParams } from "react-router-dom" 
 import Notification from "../notification/Notification";
@@ -58,7 +59,7 @@ async function getProducts() {
 
 useEffect(() => {
   getProducts();
-}, []);
+}, );
 
   return (
     <>
