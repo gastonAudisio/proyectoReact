@@ -6,6 +6,20 @@ export function CartContextProvider(props) {
   let [cart, setCart] = useState([]);
 
 
+  const isInCart = (id) =>
+    cart.find((product) => product.id === id) ? true : false;
+
+  const addItem =(item, quantity) =>{
+    if(isInCart(item.id)){
+      setCart (cart.map(product =>{
+        return product.id === item.id ?{...product,quantity:product.quantity + quantity} : product
+      }));
+
+    }else{
+      setCart ([...cart,{...item,quantity}]);
+    }
+  }
+/*
   function addItem(item) {
 
     const isInCart = cart.some((itemInCart) => itemInCart.id === item.id);
@@ -19,7 +33,8 @@ export function CartContextProvider(props) {
     } else {
       setCart([...cart, item]);
     }
-  }
+  }*/
+  
 /*
   function addItem(item,cantidad) {
     const isInCart = cart.some((itemInCart) => itemInCart.id === item.id);

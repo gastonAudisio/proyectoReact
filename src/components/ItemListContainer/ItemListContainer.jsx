@@ -1,12 +1,15 @@
 
 
 import React, { useState, useEffect } from "react";
-import  { getItemsByCategory } from "../../services/services";
-import  {  getItemsPromise  } from "../../services/firebase";
+//import  { getItemsByCategory ,getItemsPromise} from "../../services/firebase";
+import getItems, { getItemsByCategory ,getItemsPromise} from "../../services/services";
+
 import ItemList from "../itemList/ItemList";
 import { useParams } from "react-router-dom" 
 import Notification from "../notification/Notification";
 import Loader from "../loader/Loader";
+import Flex from "../flex/Flex";
+
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
@@ -35,7 +38,7 @@ function ItemListContainer() {
 async function getProducts() {
   if (!categoryid) {
     try {
-      let response = await getItemsPromise();
+      let response = await getItems();
       setProducts(response);
       setNotification({
         type: "default",
@@ -66,8 +69,11 @@ useEffect(() => {
        {notification.type && <Notification notification={notification} />}
        {isLoading ? (
         
-          <Loader color="blue" size={500} />
-      
+        <Flex>
+          <Loader />
+        </Flex>
+        
+        
       ) : (
         <ItemList products={products} />
       )}
