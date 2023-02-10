@@ -17,11 +17,11 @@ function ItemDetailContainer() {
       .catch((error) => alert(`Error: ${error}`));
   }, [itemid]);
 
+  
   return (
     <div>
-    
-    <ItemDetail product={product}/>
-  </div>   
+      <ItemDetail product={product}/>
+    </div>   
   )
   
 }

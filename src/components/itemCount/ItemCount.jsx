@@ -7,14 +7,10 @@ function ItemCount( { stock, onAddToCart } ) {
   const [count, setCount] = useState(1);
  
   function handleAdd() {
-   
    setCount(count + 1);
-  
-  
   }
 
   function handleSubstract() {
-    
     setCount(count - 1);
   }
  

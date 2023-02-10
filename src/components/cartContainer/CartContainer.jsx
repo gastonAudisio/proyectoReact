@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./cartContainer.css";
 import Flex from "../flex/Flex";
 import { createBuyOrder } from "../../services/firebase";
-
+import CartForm from "./CartForm";
 
 function CartContainer() {
   const { cart , removeItem ,clearCart , totalPrice } = useContext(cartContext);
@@ -28,7 +28,7 @@ function CartContainer() {
       },
       items: items,
       date: new Date(),
-      total: 1000,
+      total: totalPrice(),
     };
 
     let id = await createBuyOrder(order); 
@@ -77,10 +77,11 @@ function CartContainer() {
           </Link>
           
               <button className="btn" onClick={() => clearCart()}>Vaciar Carrito</button> 
-              <h1>El total de tu compra es ${totalPrice()}</h1>
+              <h3>El total de tu compra es ${totalPrice()}</h3>
 
 
           <button className="btn" onClick={handleCheckout}>Finalizar Compra</button>
+          <CartForm onSubmit={handleCheckout} />
           </div>
         </div>
         )
