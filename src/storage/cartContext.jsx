@@ -19,59 +19,7 @@ export function CartContextProvider(props) {
       setCart ([...cart,{...item,quantity}]);
     }
   }
-/*
-  function addItem(item) {
 
-    const isInCart = cart.some((itemInCart) => itemInCart.id === item.id);
-
-    if (isInCart) {
-      let newCart = [...cart];
-      let index = cart.findIndex((itemInCart) => itemInCart.id === item.id);
-
-      setCart([newCart[index]])
-      console.log(newCart[index]) ;
-    } else {
-      setCart([...cart, item]);
-    }
-  }*/
-  
-/*
-  function addItem(item,cantidad) {
-    const isInCart = cart.some((itemInCart) => itemInCart.id === item.id);
-
-    if (isInCart) {
-      let newCart = [...cart];
-      let index = cart.findIndex((itemInCart) => itemInCart.id === item.id);
-      
-      newCart[index] = {...newCart[index], cantidad: newCart[index].cantidad + 1};
-      setCart(newCart);
-          setCart([...cart, item]);
-        }
-
-
-}
-
-*/
-/*
-function addItem(item,cantidad){
-  let itemIndex = cart.findIndex(itemInCart => item.id === itemInCart.id);
-  const newCart = [...cart];
-  if(itemIndex === -1){
-      const newItem = {...item,count: cantidad};
-      newCart.push(newItem);
-  }
-  else{
-      if((newCart[itemIndex].count + cantidad) > newCart[itemIndex].stock ){
-          alert("Lo sentimos", "No disponemos del stock suficiente", "warning");
-      }
-      else{
-          newCart[itemIndex].count += cantidad;
-      }
-      setCart(newCart);
-  }
-  
-}
-*/
 const removeItem = (id) => {
   const deleteItem = cart.filter(el => el.id !== id)
   setCart([...deleteItem]);
@@ -84,7 +32,8 @@ const removeItem = (id) => {
 
   function getTotalItems() {
     let total = 0;
-    cart.forEach((item) => (total += item.count));
+    cart.forEach((item) => (total += item.quantity
+      ));
     return total;
   }
 
@@ -92,7 +41,8 @@ const removeItem = (id) => {
   function totalPrice(){
     let total = 0;
     cart.forEach(item => {
-        total += item.price * item.count; 
+        total += item.price * item.quantity
+        ; 
     })
     return total;
 }

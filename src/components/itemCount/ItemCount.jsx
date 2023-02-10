@@ -20,7 +20,7 @@ function ItemCount( { stock, onAddToCart } ) {
  
   return (
     <div className="itemcount_container">
-      <small>Agregá la cantidad deseada al carrito</small>
+      <h4>Agregá la cantidad deseada al carrito</h4>
       <div className="itemcount_control">
         <button disabled={count <=1} className="btn" onClick={handleSubstract}>
           -

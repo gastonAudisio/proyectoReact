@@ -1,5 +1,5 @@
 .itemcount_container{
-    border: solid thin rgb(149, 168, 192);
+    border: solid thin rgb(216, 228, 243);
     border-radius: 15px;
     padding: 12px 25px;
     display: flex;
@@ -9,6 +9,7 @@
     text-align: center;
     justify-content: space-around;
     max-width: 480px;
+    color: aliceblue;
   }
   
   .itemcount_control{
@@ -21,7 +22,7 @@
   .itemcount_count{
     font-weight: bolder;
     font-size: 22px;
-    color: rgb(84, 82, 111);
+    color: rgb(255, 255, 255);
   }
   
   .btn{
