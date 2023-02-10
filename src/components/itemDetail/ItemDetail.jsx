@@ -6,8 +6,13 @@ import "./itemDetail.css"
 import Flex from "../flex/Flex";
 function ItemDetail({product}){
   const [cantidad,setCantidad] = useState();
- 
-  const { addItem  } = useContext(cartContext);
+  const {cart, addItem  } = useContext(cartContext);
+  
+  const itemInCart = cart.find((item) => item.id === product.id);
+  let stockUpdated;
+  if (itemInCart) stockUpdated = product.stock - itemInCart.count;
+  else stockUpdated = product.stock;
+
   function handleAddToCart(count) {
     alert(`Agregaste ${count} de ${product.title} al carrito`);
     product.count = count;
@@ -35,7 +40,7 @@ return(
               </Link> 
             </Flex>
               :   
-              <ItemCount stock={product.stock}  onAddToCart={handleAddToCart} />
+              <ItemCount stock={stockUpdated}  onAddToCart={handleAddToCart} />
         }    
     </div>  
 </div>
