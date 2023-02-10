@@ -5,11 +5,6 @@ export const cartContext = createContext();
 export function CartContextProvider(props) {
   let [cart, setCart] = useState([]);
 
-
-
- 
-
-
   const isInCart = (id) =>
     cart.find((product) => product.id === id) ? true : false;
 

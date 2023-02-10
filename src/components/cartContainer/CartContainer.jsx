@@ -12,7 +12,7 @@ function CartContainer() {
 
 
 
-  async function handleCheckout(evt) {
+  async function handleCheckout() {
     const items = cart.map((product) => ({
       id: product.id,
       title: product.title,
@@ -33,6 +33,8 @@ function CartContainer() {
 
     let id = await createBuyOrder(order); 
     setOrderId(id);
+    clearCart()
+
   }
 
   if (orderId !== null)
