@@ -5,14 +5,13 @@ export const cartContext = createContext();
 export function CartContextProvider(props) {
   let [cart, setCart] = useState([]);
 
-  
+
+
+ 
 
 
   const isInCart = (id) =>
     cart.find((product) => product.id === id) ? true : false;
-
-    
-    
 
 
   const addItem =(item, quantity) =>{
@@ -63,8 +62,6 @@ const removeItem = (id) => {
     clearCart,
     
   };
-
-  return (
-    <cartContext.Provider value={value}>{props.children}</cartContext.Provider>
-  );
+  
+  return(<cartContext.Provider value={value}>{props.children}</cartContext.Provider>);
 }
