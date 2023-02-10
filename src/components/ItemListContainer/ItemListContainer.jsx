@@ -1,8 +1,8 @@
 
 
 import React, { useState, useEffect } from "react";
-//import  { getItemsByCategory ,getItemsPromise} from "../../services/firebase";
-import getItems, { getItemsByCategory ,getItemsPromise} from "../../services/services";
+import  { getItemsByCategory ,getItemsPromise} from "../../services/firebase";
+//import getItems, { getItemsByCategory ,getItemsPromise} from "../../services/services";
 
 import ItemList from "../itemList/ItemList";
 import { useParams } from "react-router-dom" 
@@ -20,25 +20,11 @@ function ItemListContainer() {
   });
   let { categoryid } = useParams();
   
-  /*
-  useEffect(() => {
-    if (categoryid) {
-      getItemsByCategory(categoryid).then((respuesta) => {
-        console.log(respuesta);
-        setProducts(respuesta);
-      });
-    } else {
-      getItems().then((respuesta) => {
-       
-        setProducts(respuesta);
-      });
-    }
-  },[categoryid]);
-*/
+ 
 async function getProducts() {
   if (!categoryid) {
     try {
-      let response = await getItems();
+      let response = await getItemsPromise();
       setProducts(response);
       setNotification({
         type: "default",
@@ -62,7 +48,8 @@ async function getProducts() {
 
 useEffect(() => {
   getProducts();
-}, );
+},[categoryid] );
+
 
   return (
     <>

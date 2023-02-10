@@ -20,10 +20,10 @@ return(
 
   <div className=" flexRow card">
     
-    <div className=" ">
+    <div >
       <img src={product.imgurl} alt={product.title} />
     </div>
-    <div className=" ">
+    <div >
         <h1>{product.title}</h1>
         <h2 className="priceTag">$ {product.price}</h2>
         <h5 className="texto">{product.detail}</h5>

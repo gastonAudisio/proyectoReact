@@ -1,17 +1,6 @@
- .nav-menu{
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    margin: 0;  
-    height: 90px;
-    background-color: rgb(72, 171, 228);
-    top: 0;
-    margin-bottom: 45px;
-  } 
-  
+ 
   .nav-link{
+    
     text-decoration: none;
     font-weight:400;
     font-size: 1.15em;
@@ -23,3 +12,20 @@
     font-weight: 600;
     color:rgb(146, 35, 96)
   }
+ul{
+  text-decoration: none;
+  list-style: none;
+}
+nav{
+  display: flex;
+  flex-wrap:wrap;
+}
+
+.login{
+  width: 40%;
+  padding-top: 10px;
+  padding-left: 10px;
+  margin-left: 400px;
+  display: flex;
+  justify-content:space-evenly;
+}

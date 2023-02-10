@@ -8,18 +8,20 @@ import {
   where,
   query,
 } from "firebase/firestore";
-//1. Iniciar la conexión a Firestore
+
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD7RXW7fbiMn4JKTcCxOCBZ61JVsX0djNA",
-  authDomain: "proyecto-react-3bfa8.firebaseapp.com",
-  projectId: "proyecto-react-3bfa8",
-  storageBucket: "proyecto-react-3bfa8.appspot.com",
-  messagingSenderId: "1073642690908",
-  appId: "1:1073642690908:web:c1dfcef28d1fba2674c999",
-  measurementId: "G-WJW5E8H6KE"
+  apiKey: "AIzaSyDzeTzZBJyhCsfW3tD9c2LTTVal0jXOfUo",
+  authDomain: "proyectoreact-1739f.firebaseapp.com",
+  projectId: "proyectoreact-1739f",
+  storageBucket: "proyectoreact-1739f.appspot.com",
+  messagingSenderId: "1018146710761",
+  appId: "1:1018146710761:web:776fd1d48b5cab1d127c78"
 };
+
+
+
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -28,7 +30,6 @@ export function testApp() {
   console.log("Conectandonos a firestore", db);
 }
 
-//1. Obtener un producto
 export async function getSingleItem(itemid) {
   const docRef = doc(db, "libros", itemid);
   const snapshot = await getDoc(docRef);
@@ -38,7 +39,6 @@ export async function getSingleItem(itemid) {
   return docData;
 }
 
-//2. Obtener todos los productos para el ILC
 export async function getItems() {
   const productsCollection = collection(db, "libros");
   const querySnapshot = await getDocs(productsCollection);
@@ -63,7 +63,6 @@ export function getItemsPromise() {
   });
 }
 
-//3. Obtener los productos según su category
 export async function getItemsByCategory(categoryid) {
   const productsCollectionRef = collection(db, "libros");
 
