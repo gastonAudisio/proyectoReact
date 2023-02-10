@@ -2,7 +2,7 @@ import ItemCount from "../itemCount/ItemCount";
 import { Link } from "react-router-dom";
 import { cartContext } from "../../storage/cartContext";
 import React, { useContext , useState } from "react";
-
+import "./itemDetail.css"
 
 function ItemDetail({product}){
   const [cantidad,setCantidad] = useState();
@@ -18,10 +18,10 @@ function ItemDetail({product}){
  
 return(
 
-  <div className=" flexRow card">
+  <div className=" flexRow card-detail">
     
     <div >
-      <img src={product.imgurl} alt={product.title} />
+      <img className="img" src={product.imgurl} alt={product.title} />
     </div>
     <div >
         <h1>{product.title}</h1>

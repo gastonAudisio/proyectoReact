@@ -1,19 +1,22 @@
 .flexRow{
     display: flex;
-    flex-direction: row;
+    flex-direction:row;
+    justify-content: center;
     flex-wrap:wrap;
     
 }
 
 .card{
-    margin: 20px;
+    width: 90%;
+    margin-left: 40px;
     padding: 20px;
     background-color: rgb(37, 96, 206);
     justify-content: space-around;
     border-radius: 10px;
-    align-items: center;
+    
 
 }
+
 
 .text{
     justify-content: center;
