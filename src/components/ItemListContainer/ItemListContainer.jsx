@@ -1,9 +1,6 @@
 
-
 import React, { useState, useEffect } from "react";
 import  { getItemsByCategory ,getItemsPromise} from "../../services/firebase";
-//import getItems, { getItemsByCategory ,getItemsPromise} from "../../services/services";
-
 import ItemList from "../itemList/ItemList";
 import { useParams } from "react-router-dom" 
 import Notification from "../notification/Notification";

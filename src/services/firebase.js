@@ -74,6 +74,5 @@ export async function getItemsByCategory(categoryid) {
     ...doc.data(),
     id: doc.id,
   }));
-
-  console.log(dataDocs);
+return dataDocs;
 }

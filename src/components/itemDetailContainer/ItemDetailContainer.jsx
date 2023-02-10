@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-//import { getSingleItem } from "../../services/services";
 import { getSingleItem } from "../../services/firebase";
 import { useParams } from "react-router-dom" 
 import "./itemDetail.css";
