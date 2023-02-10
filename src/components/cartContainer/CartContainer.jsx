@@ -12,7 +12,7 @@ function CartContainer() {
 
 
 
-  async function handleCheckout() {
+  async function handleCheckout(userData) {
     const items = cart.map((product) => ({
       id: product.id,
       title: product.title,
@@ -21,11 +21,7 @@ function CartContainer() {
     }));
 
     const order = {
-      buyer: {
-        name: "gaston",
-        email: "gaston@gmail.com",
-        phone: 5555,
-      },
+      buyer: userData,
       items: items,
       date: new Date(),
       total: totalPrice(),
