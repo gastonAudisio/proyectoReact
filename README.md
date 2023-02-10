@@ -1,6 +1,9 @@
-Proyecto React Js - Comisión 43580 - Lucas Gastón Audisio
+# Proyecto React Js - Comisión 43580 - Lucas Gastón Audisio
 
-En este proyecto se desarrolló una app de un E-commerce.
+## Link del sitio web : 
+
+## En este proyecto se desarrolló una app de un E-commerce.
+
 El usuario puede loguearse, navegar por los productos y ver los detalles de los mismos.
 Puede agregar los productos deseados a un carrito de compras, donde puede eliminarlos uno a uno,
 o vaciar el carrito completo.
