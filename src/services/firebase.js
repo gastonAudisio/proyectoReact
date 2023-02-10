@@ -7,6 +7,7 @@ import {
   getDocs,
   where,
   query,
+  addDoc,
 } from "firebase/firestore";
 
 
@@ -75,4 +76,11 @@ export async function getItemsByCategory(categoryid) {
     id: doc.id,
   }));
 return dataDocs;
+}
+
+export async function createBuyOrder(order) {
+  const ordersCollection = collection(db, "orders");
+
+  const orderDoc = await addDoc(ordersCollection, order);
+  return orderDoc.id;
 }

@@ -1,12 +1,49 @@
-import React, { useContext } from "react";
+import React, { useState,useContext } from "react";
 import { cartContext } from "../../storage/cartContext";
 import { Link } from "react-router-dom";
 import "./cartContainer.css";
 import Flex from "../flex/Flex";
+import { createBuyOrder } from "../../services/firebase";
 
 
 function CartContainer() {
   const { cart , removeItem ,clearCart , totalPrice } = useContext(cartContext);
+  const [orderId, setOrderId] = useState(null);
+
+
+
+  async function handleCheckout(evt) {
+    const items = cart.map((product) => ({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      count: product.count,
+    }));
+
+    const order = {
+      buyer: {
+        name: "gaston",
+        email: "gaston@gmail.com",
+        phone: 5555,
+      },
+      items: items,
+      date: new Date(),
+      total: 1000,
+    };
+
+    let id = await createBuyOrder(order); 
+    setOrderId(id);
+  }
+
+  if (orderId !== null)
+    return (
+      <div>
+        <h1>Gracias por tu compra</h1>
+        <p>El id de tu compra es: {orderId}</p>
+      </div>
+    );
+
+
 
   return (
 
@@ -39,7 +76,9 @@ function CartContainer() {
           
               <button className="btn" onClick={() => clearCart()}>Vaciar Carrito</button> 
               <h1>El total de tu compra es ${totalPrice()}</h1>
-          
+
+
+          <button className="btn" onClick={handleCheckout}>Finalizar Compra</button>
           </div>
         </div>
         )
