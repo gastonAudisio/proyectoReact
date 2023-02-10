@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { cartContext } from "../../storage/cartContext";
 import { Link } from "react-router-dom";
 import "./cartContainer.css";
-import Flex from "../flex/Flex";
+
 
 function CartContainer() {
   const { cart , removeItem ,clearCart , totalPrice } = useContext(cartContext);
@@ -26,10 +26,10 @@ function CartContainer() {
       <Link to="/">
           <button className="btn ">Seguir Comprando</button> 
       </Link>
-      <Flex>
+      
           <button className="btn" onClick={() => clearCart()}>Vaciar Carrito</button> 
           <h1>El total de tu compra es ${totalPrice()}</h1>
-      </Flex>
+      
       </div>
       
       

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { cartContext } from "../../storage/cartContext";
 import React, { useContext , useState } from "react";
 import "./itemDetail.css"
-
+import Flex from "../flex/Flex";
 function ItemDetail({product}){
   const [cantidad,setCantidad] = useState();
  
@@ -29,9 +29,11 @@ return(
         <h5 className="texto">{product.detail}</h5>
 
         {cantidad>0 ?
+            <Flex>
               <Link to="/cart">
                 <button className="btn">Ver Carrito</button> 
               </Link> 
+            </Flex>
               :   
               <ItemCount stock={product.stock}  onAddToCart={handleAddToCart} />
         }    
