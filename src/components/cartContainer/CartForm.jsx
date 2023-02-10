@@ -75,7 +75,7 @@ export default function CartForm(props) {
         }
         type="submit"
       >
-        Crear orden
+        Crear orden de Compra
       </button>
       <button onClick={clearData}>Limpiar Datos</button>
     </form>

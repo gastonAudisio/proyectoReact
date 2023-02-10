@@ -1,3 +1,31 @@
+Proyecto React Js - Comisión 43580 - Lucas Gastón Audisio
+
+En este proyecto se desarrolló una app de un E-commerce.
+El usuario puede loguearse, navegar por los productos y ver los detalles de los mismos.
+Puede agregar los productos deseados a un carrito de compras, donde puede eliminarlos uno a uno,
+o vaciar el carrito completo.
+El usuario ingresa sus datos en un formulario y se genera una orden de compra.
+La app nos devuelve el ID de la compra.
+Los productos estan cargados en la nube de Firebase.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
